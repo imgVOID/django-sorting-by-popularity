@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Hladomraz &amp; Ovoshch Incorporated</title>
+
+  <style type="text/css">
+
+      body {
+          height: 100%;
+          margin: 0 0 -90px 0
+      }
+      header {
+          text-align: center;
+      }
+      main {
+          text-align: center;
+          font-family: 'Arial';
+      }
+      footer {
+          position: absolute;
+          bottom: 0;
+          padding-left: 1em;
+          padding-right: 1em;
+      }
+      .content {
+          display: inline-block;
+          margin: 2rem;
+          background-color: black;
+          color: white;
+          padding: 2rem;
+          border: 1rem dashed gray;
+          padding-right: 3rem;
+      }
+      a {
+          color: lightgray;
+      }
+  </style>
+
+</head>
+<body>
+    <header class="header">
+        <h1>
+            Hladomraz &amp; Ovoshch Incorporated
+        </h1>
+        <h2>
+            Лучшие холодильники и телевизоры с 1666 года!
+        </h2>
+    </header>
+    <main class="main">
+        <div class="content">
+            <h3>
+                Телевизоры:
+            </h3>
+            <ul>
+            	{% for tv in tvs %}
+				<li>
+                	<a href="/item/{{ tv.id }} "><h4>{{ tv.product_type }} "{{ tv.title }}"</h4></a>
+                	<p>Популярность: {{ tv.popularity }}</p>
+            	</li>
+				{% endfor %}
+        	</ul>
+        </div>
+        <div class="content">
+    		<h3>
+                Холодильники:
+            </h3>
+			<ul type="square">
+            	{% for fridge in fridges %}
+					<li>
+                	<a href="/item/{{ fridge.id }} "><h4>{{ fridge.product_type }} "{{ fridge.title }}"</h4></a>
+                	<p>Популярность: {{ fridge.popularity }}</p>
+            		</li>
+				{% endfor %}
+        	</ul>
+        </div>
+
+    </main>
+    <footer>
+    	<h1>
+            &copy; 2007 poplava.site
+        </h1>
+    </footer>
+</body>
+</html>
